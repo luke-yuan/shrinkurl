@@ -30,14 +30,14 @@ app.get("/new/*", function(req, res) {
                     URL.create(urlObj);
                     var returnObj = {
                         original_url: urlString,
-                        short_url: "https://shrinkurl-lukeyuan.c9users.io/" + count
+                        short_url: process.env.WEBSITEURL + count
                     }
                     res.send(returnObj);
                 });
             } else {
                 res.send({
                     original_url: urlString,
-                    short_url: "https://shrinkurl-lukeyuan.c9users.io/" + foundURL.shrink
+                    short_url: process.env.WEBSITEURL + foundURL.shrink
                 })
             }
         })
